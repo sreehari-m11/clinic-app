@@ -1,8 +1,10 @@
+import TokenPicker from "./TokenPicker";
+
 export default function DoctorDetailsCard({ doctor }) {
     const name = doctor.fullname.split(" ")
     const shortname = name[0][0] + name[1][0];
     return (
-        <div className="flex gap-4 p-8 flex-wrap justify-between">
+        <div className="flex flex-wrap gap-4 p-8 justify-between">
             <div className="w-3/7 bg-gray-100 p-6 rounded-xl">
                 <div className="flex gap-4">
                     <div className="size-15 flex justify-center items-center text-xl font-bold bg-green-200 rounded-full">{shortname.toUpperCase()}</div>
@@ -41,7 +43,7 @@ export default function DoctorDetailsCard({ doctor }) {
             </div>
 
             <div className="w-1/2 bg-gray-100 p-6 rounded-xl">
-                <h4 className="text-2xl">Choose a token</h4>
+                <TokenPicker totalTokens={doctor.totalTokens} />
             </div>
         </div>
     )
