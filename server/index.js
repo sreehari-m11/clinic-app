@@ -1,8 +1,19 @@
+import "dotenv/config";
+import mongoose from "mongoose";
 import express from 'express';
 import cors from 'cors';
+import Clinic from './models/Clinic.js';
 
 const app = express();
 app.use(cors());
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("Connected to mongodb")
+    })
+    .catch((err) => {
+        console.log("Failed database connection: ", err);
+    })
 
 const doctors = [
     {
